@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DK Club</title>
+    <link rel="stylesheet" href="static/fonts/roboto/stylesheet.css">
+    <link rel="stylesheet" href="static/css/toulouse_landing.css">
+    <!-- Event snippet for Подписка conversion page -->
+    <script>
+      gtag('event', 'conversion', {
+          'send_to': 'AW-18063590974/Y930CLXh35UcEL6MsqVD',
+          'value': 1.0,
+          'currency': 'UAH'
+      });
+    </script>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <script>
+      const _p = new URLSearchParams(window.location.search);
+      const _keys = ["b","pixel","gclid","ad_name","ad_id","campaign_id","adset_name","site_source_name","placement"];
+      const _query = _keys
+        .filter(k => _p.has(k))
+        .map(k => `${k}=${encodeURIComponent(_p.get(k))}`)
+        .join("&");
+      const TRACKER_URL = "https://thedinator.com/tracker/spots/redirect/VeUFdCl0" + (_query ? "?" + _query : "");
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="https://api.mvpproject.io/static/images/tg_logo.svg" alt="" class="logo">
+            <button onclick="location.href='https://telegram.org';">Download</button>
+        </div>
+    </header>
+    <main>
+        <div class="banner">
+            <div class="text">
+                <a class="redir" href="#"><img src="ava.jpg" alt=""></a>
+                <a class="title">dk.club</a>
+                <div class="members">
+                    519 members
+                </div>
+                <div class="description">Привіт. Мене звати Даніель, і це моє комьюніті
+                <p>🔸Безкоштовне навчання</p>
+                <p>🔸Понад 500 учасників спільноти</p>
+                <p>🔸Актуальні результати, аналітика та огляди ринку</p></div>
+            </div>
+            <div class="buttons">
+                <a href="#" class="blue redir">View in Telegram</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Подставляем TRACKER_URL во все .redir ссылки
+        document.querySelectorAll('.redir').forEach(el => {
+            el.setAttribute('href', TRACKER_URL);
+        });
+    </script>
+
+    <script>
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        function add_fbp() {
+            const fbpCookie = getCookie('_fbp');
+            console.log(fbpCookie);
+            if (!fbpCookie) {
+                setTimeout(add_fbp, 50);
+            }
+            if (fbpCookie) {
+                const blueElements = document.querySelectorAll('.redir');
+                blueElements.forEach(element => {
+                    console.log(element);
+                    if (element) {
+                        const href = element.getAttribute('href');
+                        if (href.includes('?')) {
+                            element.setAttribute('href', `${href}&fbp=${fbpCookie}`);
+                        } else {
+                            element.setAttribute('href', `${href}?fbp=${fbpCookie}`);
+                        }
+                    }
+                });
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", add_fbp);
+    </script>
+</body>
+</html>

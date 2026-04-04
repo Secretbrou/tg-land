@@ -1,0 +1,185 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+body::after{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    content: "";
+    background: url(../images/pattern.svg);
+    mix-blend-mode: soft-light;
+}
+body{
+    min-height: 100vh;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.00) 3.74%), radial-gradient(126.14% 31.7% at 50% 0%, #C1CAA9 0%, rgba(193, 202, 169, 0.00) 100%), radial-gradient(96.8% 44.87% at 50% 90.79%, #C5D08B 0%, rgba(197, 208, 139, 0.00) 100%), #7EAE8B;
+}
+header{
+    min-width: 100vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #E8F1EB;
+}
+
+header > .container{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 16px;
+}
+
+header > .container > img{
+    max-height: 34px;
+    height: 34px;
+}
+
+header > .container > button{
+    display: inline-block;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    text-transform: uppercase;
+    color: #fff;
+    background: #2481cc;
+    padding: 9px 16px;
+    height: 34px;
+    border-radius: 17px;
+    text-align: center;
+    transition: all .15s ease .15s;
+    border: 0;
+}
+
+main{
+    padding: 70px 16px 40px;
+}
+
+main > .banner{
+    position: relative;
+    margin: 16px auto;
+    padding: 32px 0;
+    max-width: 400px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    transition: all .15s ease .15s;
+    position: relative;
+    z-index: 998;
+}
+
+main > .banner > .text > a > img{
+    width: 122px;
+    height: 122px;
+    border-radius: 61px;
+}
+
+main > .banner > .text > a{
+    text-align: center;
+    padding-bottom: 16px;
+}
+
+main > .banner > .text > .title{
+        font-size: 26px;
+        line-height: 32px;
+        font-weight: bold;
+        text-align: center;
+        max-width: 340px;
+        padding: 0 10px;
+        margin: 0 auto;
+        color: #000;
+        overflow: hidden;
+        text-overflow: ellipsis;
+}
+
+main > .banner > .text > .members{
+        font-size: 15px;
+        line-height: 18px;
+        text-align: center;
+        padding: 6px 16px 0;
+        color: #7d7f81;
+}
+
+main > .banner > .text > .description{
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 125px;
+    word-break: break-word;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+    margin: 10px 16px 0;
+    padding: 0;
+}
+
+@-webkit-keyframes bg-move {
+    0%   { background-position: -500px 0; }
+    100% { background-position: 1000px 0; }
+  }
+  @keyframes bg-move {
+    0%   { background-position: -500px 0; }
+    100% { background-position: 1000px 0; }
+  }
+
+main > .banner > .buttons > .blue {
+        background-image: linear-gradient(270deg, rgba(100, 181, 239, 0) 48.44%, #64b5ef 75.52%, rgba(100, 181, 239, 0) 100%);
+        background-repeat: no-repeat;
+        animation: bg-move linear 5s infinite;
+        background-color: #2481cc;
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: bold;
+        -webkit-font-smoothing: antialiased;
+        color: #FFF;
+        border-radius: 22px;
+        overflow: hidden;
+        display: inline-block;
+        padding: 13px 24px;
+        text-transform: uppercase;
+        vertical-align: top;
+        z-index: 99999;
+        position: relative;
+        text-decoration: none;
+}
+
+.banner > .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+main > .banner > .buttons > .blue-bordered {
+    border: 2px solid #2481cc;
+
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    color: #2481cc;
+    border-radius: 22px;
+    overflow: hidden;
+    display: inline-block;
+    padding: 11px 22px;
+    text-transform: uppercase;
+    vertical-align: top;
+    z-index: 99999;
+    position: relative;
+    text-decoration: none;
+}
+
+.banner > .text {
+    display: flex;
+    flex-direction: column;
+}
