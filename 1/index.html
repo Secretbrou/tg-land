@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DK Club</title>
     
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-P6Z38TDB');</script>
     <link rel="stylesheet" href="static/fonts/roboto/stylesheet.css">
     <link rel="stylesheet" href="static/css/toulouse_landing.css">
+    <link rel="icon" type="image/png" href="favicon.png">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18086381115"></script>
     <script>
@@ -21,7 +17,20 @@
       gtag('config', 'AW-18086381115');
     </script>
 
-    <link rel="icon" type="image/png" href="favicon.png">
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-18086381115/BbyPCOf_1pwcELuMobBD',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
 
     <script>
       const _p = new URLSearchParams(window.location.search);
@@ -34,8 +43,6 @@
     </script>
 </head>
 <body>
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6Z38TDB"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <header>
         <div class="container">
@@ -48,47 +55,27 @@
             <div class="text">
                 <a class="redir" href="#"><img src="ava.jpg" alt=""></a>
                 <a class="title">dk.club</a>
-                <div class="members">
-                    527 members
+                <div class="members">519 members</div>
+                <div class="description">
+                    Привіт. Мене звати Даніель, і це моє комьюніті
+                    <p>🔸Безкоштовне навчання</p>
+                    <p>🔸Понад 500 учасників спільноти</p>
+                    <p>🔸Актуальні результати, аналітика та огляди ринку</p>
                 </div>
-                <div class="description">Привіт. Мене звати Даніель, і це моє комьюніті
-                <p>🔸Безкоштовне навчання</p>
-                <p>🔸Понад 500 учасників спільноти</p>
-                <p>🔸Актуальні результати, аналітика та огляди ринку</p></div>
             </div>
             <div class="buttons">
-                <a href="#" id="Subscribe-btn" class="blue redir">View in Telegram</a>
+                <a href="#" onclick="return gtag_report_conversion(TRACKER_URL);" class="blue redir">View in Telegram</a>
             </div>
         </div>
     </main>
 
     <script>
-        // --- ТРЕКИНГ СОБЫТИЯ SUBSCRIBE ---
-        document.getElementById('Subscribe-btn').addEventListener('click', function(e) {
-            // Отправляем сигнал в GTM
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                'event': "Subscribe"
-            });
-            
-            // Получаем ссылку для редиректа
-            const targetUrl = this.getAttribute('href');
-            
-            // Если это не пустая ссылка, делаем микро-паузу (чтобы GTM успел отправить данные) и переходим
-            if (targetUrl && targetUrl !== "#") {
-                e.preventDefault(); 
-                setTimeout(function() {
-                    window.location.href = targetUrl;
-                }, 300); 
-            }
-        });
-
-        // Работа с TRACKER_URL
+        // Подставляем TRACKER_URL во все аватарки и ссылки с классом .redir
         document.querySelectorAll('.redir').forEach(el => {
             el.setAttribute('href', TRACKER_URL);
         });
 
-        // Работа с Cookie FBP
+        // Логика Cookie FBP (если нужна)
         function getCookie(name) {
             const value = `; ${document.cookie}`;
             const parts = value.split(`; ${name}=`);
@@ -97,22 +84,18 @@
 
         function add_fbp() {
             const fbpCookie = getCookie('_fbp');
-            if (!fbpCookie) {
-                setTimeout(add_fbp, 50);
-                return;
-            }
             if (fbpCookie) {
-                const blueElements = document.querySelectorAll('.redir');
-                blueElements.forEach(element => {
+                document.querySelectorAll('.redir').forEach(element => {
                     const href = element.getAttribute('href');
                     if (href && href !== "#") {
                         const separator = href.includes('?') ? '&' : '?';
                         element.setAttribute('href', `${href}${separator}fbp=${fbpCookie}`);
                     }
                 });
+            } else {
+                setTimeout(add_fbp, 100);
             }
         }
-
         document.addEventListener("DOMContentLoaded", add_fbp);
     </script>
 </body>
