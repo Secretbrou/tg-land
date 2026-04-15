@@ -7,13 +7,11 @@
     <link rel="stylesheet" href="static/fonts/roboto/stylesheet.css">
     <link rel="stylesheet" href="static/css/toulouse_landing.css">
 
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18086381115"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'AW-18086381115');
     </script>
 
@@ -50,19 +48,37 @@
                 <p>🔸Актуальні результати, аналітика та огляди ринку</p></div>
             </div>
             <div class="buttons">
-                <a href="#" class="blue redir">View in Telegram</a>
+                <a href="#" id="subscribe-btn" class="blue redir">View in Telegram</a>
             </div>
         </div>
     </main>
 
     <script>
+        // --- БЛОК ТРЕКИНГА КОНВЕРСИИ ---
+        document.getElementById('subscribe-btn').addEventListener('click', function(e) {
+            // Отправляем событие в GTM (название 'Subscribe' как в твоем триггере)
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'Subscribe'
+            });
+            
+            // Берем ссылку из кнопки
+            const targetUrl = this.getAttribute('href');
+            
+            // Если ссылка валидна, делаем небольшую паузу для GTM и переходим
+            if (targetUrl && targetUrl !== "#") {
+                e.preventDefault(); 
+                setTimeout(function() {
+                    window.location.href = targetUrl;
+                }, 250); // 250мс достаточно для срабатывания тегов
+            }
+        });
+
         // Подставляем TRACKER_URL во все .redir ссылки
         document.querySelectorAll('.redir').forEach(el => {
             el.setAttribute('href', TRACKER_URL);
         });
-    </script>
 
-    <script>
         function getCookie(name) {
             const value = `; ${document.cookie}`;
             const parts = value.split(`; ${name}=`);
@@ -71,7 +87,6 @@
 
         function add_fbp() {
             const fbpCookie = getCookie('_fbp');
-            console.log(fbpCookie);
             if (!fbpCookie) {
                 setTimeout(add_fbp, 50);
                 return;
@@ -79,14 +94,10 @@
             if (fbpCookie) {
                 const blueElements = document.querySelectorAll('.redir');
                 blueElements.forEach(element => {
-                    console.log(element);
-                    if (element) {
-                        const href = element.getAttribute('href');
-                        if (href.includes('?')) {
-                            element.setAttribute('href', `${href}&fbp=${fbpCookie}`);
-                        } else {
-                            element.setAttribute('href', `${href}?fbp=${fbpCookie}`);
-                        }
+                    const href = element.getAttribute('href');
+                    if (href && href !== "#") {
+                        const separator = href.includes('?') ? '&' : '?';
+                        element.setAttribute('href', `${href}${separator}fbp=${fbpCookie}`);
                     }
                 });
             }
