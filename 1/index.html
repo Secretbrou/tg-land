@@ -57,18 +57,18 @@
                 <p>🔸Актуальні результати, аналітика та огляди ринку</p></div>
             </div>
             <div class="buttons">
-                <a href="#" id="subscribe-btn" class="blue redir">View in Telegram</a>
+                <a href="#" id="Subscribe-btn" class="blue redir">View in Telegram</a>
             </div>
         </div>
     </main>
 
     <script>
         // --- ТРЕКИНГ СОБЫТИЯ SUBSCRIBE ---
-        document.getElementById('subscribe-btn').addEventListener('click', function(e) {
+        document.getElementById('Subscribe-btn').addEventListener('click', function(e) {
             // Отправляем сигнал в GTM
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
-                'event': 'Subscribe'
+                'event': "Subscribe"
             });
             
             // Получаем ссылку для редиректа
