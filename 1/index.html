@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DK Club</title>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P6Z38TDB');</script>
     <link rel="stylesheet" href="static/fonts/roboto/stylesheet.css">
     <link rel="stylesheet" href="static/css/toulouse_landing.css">
 
@@ -28,6 +34,9 @@
     </script>
 </head>
 <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6Z38TDB"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
     <header>
         <div class="container">
             <img src="https://api.mvpproject.io/static/images/tg_logo.svg" alt="" class="logo">
@@ -40,7 +49,7 @@
                 <a class="redir" href="#"><img src="ava.jpg" alt=""></a>
                 <a class="title">dk.club</a>
                 <div class="members">
-                    527 members
+                    519 members
                 </div>
                 <div class="description">Привіт. Мене звати Даніель, і це моє комьюніті
                 <p>🔸Безкоштовне навчання</p>
@@ -54,31 +63,32 @@
     </main>
 
     <script>
-        // --- БЛОК ТРЕКИНГА КОНВЕРСИИ ---
+        // --- ТРЕКИНГ СОБЫТИЯ SUBSCRIBE ---
         document.getElementById('subscribe-btn').addEventListener('click', function(e) {
-            // Отправляем событие в GTM (название 'Subscribe' как в твоем триггере)
+            // Отправляем сигнал в GTM
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
                 'event': 'Subscribe'
             });
             
-            // Берем ссылку из кнопки
+            // Получаем ссылку для редиректа
             const targetUrl = this.getAttribute('href');
             
-            // Если ссылка валидна, делаем небольшую паузу для GTM и переходим
+            // Если это не пустая ссылка, делаем микро-паузу (чтобы GTM успел отправить данные) и переходим
             if (targetUrl && targetUrl !== "#") {
                 e.preventDefault(); 
                 setTimeout(function() {
                     window.location.href = targetUrl;
-                }, 250); // 250мс достаточно для срабатывания тегов
+                }, 300); 
             }
         });
 
-        // Подставляем TRACKER_URL во все .redir ссылки
+        // Работа с TRACKER_URL
         document.querySelectorAll('.redir').forEach(el => {
             el.setAttribute('href', TRACKER_URL);
         });
 
+        // Работа с Cookie FBP
         function getCookie(name) {
             const value = `; ${document.cookie}`;
             const parts = value.split(`; ${name}=`);
