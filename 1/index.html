@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,23 +6,17 @@
     <title>DK Club</title>
     <link rel="stylesheet" href="static/fonts/roboto/stylesheet.css">
     <link rel="stylesheet" href="static/css/toulouse_landing.css">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063590974"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'AW-18063590974');
-</script>
-    <!-- Event snippet for Подписка conversion page -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18086381115"></script>
     <script>
-      gtag('event', 'conversion', {
-          'send_to': 'AW-18063590974/Y930CLXh35UcEL6MsqVD',
-          'value': 1.0,
-          'currency': 'UAH'
-      });
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18086381115');
     </script>
+
     <link rel="icon" type="image/png" href="favicon.png">
 
     <script>
@@ -80,6 +74,7 @@
             console.log(fbpCookie);
             if (!fbpCookie) {
                 setTimeout(add_fbp, 50);
+                return;
             }
             if (fbpCookie) {
                 const blueElements = document.querySelectorAll('.redir');
