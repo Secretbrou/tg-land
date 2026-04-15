@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="static/css/toulouse_landing.css">
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18086381115"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063590974"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+
+      gtag('config', 'AW-18063590974');
+      // Также активируем конфиг для второго ID, на который уходит конверсия
       gtag('config', 'AW-18086381115');
     </script>
 
@@ -50,6 +53,7 @@
             <button onclick="location.href='https://telegram.org';">Download</button>
         </div>
     </header>
+
     <main>
         <div class="banner">
             <div class="text">
@@ -70,12 +74,12 @@
     </main>
 
     <script>
-        // Подставляем TRACKER_URL во все аватарки и ссылки с классом .redir
+        // Обновляем все ссылки .redir, чтобы они вели на TRACKER_URL
         document.querySelectorAll('.redir').forEach(el => {
             el.setAttribute('href', TRACKER_URL);
         });
 
-        // Логика Cookie FBP (если нужна)
+        // Логика Cookie FBP
         function getCookie(name) {
             const value = `; ${document.cookie}`;
             const parts = value.split(`; ${name}=`);
