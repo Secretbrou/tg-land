@@ -9,32 +9,24 @@
     <link rel="stylesheet" href="static/css/toulouse_landing.css">
     <link rel="icon" type="image/png" href="favicon.png">
 
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P6Z38TDB');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google Ads tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18098195363"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'AW-18098195363');
     </script>
 
-    <script>
-    function gtag_report_conversion(url) {
-      var callback = function () {
-        if (typeof(url) != 'undefined') {
-          window.location = url;
-        }
-      };
-      gtag('event', 'conversion', {
-          'send_to': 'AW-18098195363/MnlfCM-25J0cEKOX8rVD',
-          'value': 1.0,
-          'currency': 'UAH',
-          'event_callback': callback
-      });
-      return false;
-    }
-    </script>
-
+    <!-- Tracker URL builder -->
     <script>
       const _p = new URLSearchParams(window.location.search);
       const _keys = ["b","pixel","gclid","ad_name","ad_id","campaign_id","adset_name","site_source_name","placement"];
@@ -46,6 +38,11 @@
     </script>
 </head>
 <body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6Z38TDB"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <header>
         <div class="container">
@@ -68,7 +65,7 @@
                 </div>
             </div>
             <div class="buttons">
-                <a href="#" onclick="return gtag_report_conversion(TRACKER_URL);" class="blue redir">View in Telegram</a>
+                <a href="#" class="blue redir">View in Telegram</a>
             </div>
         </div>
     </main>
